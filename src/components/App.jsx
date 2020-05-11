@@ -29,7 +29,7 @@ const App = () => {
   return (
     <ThemeProvider>
       <Heading as="h1" p={5} textAlign="center" backgroundColor="#16a085" color="white">
-        Covid-19 quick status
+        Covid-19 Quick Status
       </Heading>
       <CountriesDropdown handleCountry={handleCountry} />
       {covReport.message === undefined && !_.isEmpty(covReport) ? (
