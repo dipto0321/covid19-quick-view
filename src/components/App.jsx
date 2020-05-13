@@ -3,6 +3,7 @@ import _ from "underscore";
 import { ThemeProvider, Heading, Flex, Box, Text } from "@chakra-ui/core";
 import NovelCovid from "novelcovid";
 import CountriesDropdown from "./CountriesDropdown";
+import MapView from "./MapView";
 import CovidReportView from "./CovidReportView";
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
       });
     }
   }, [country]);
+
   useEffect(() => {
     updateCovidData();
   }, [updateCovidData]);
@@ -33,8 +35,10 @@ const App = () => {
       </Heading>
       <CountriesDropdown handleCountry={handleCountry} />
       {covReport.message === undefined && !_.isEmpty(covReport) ? (
-        <Flex w="80%" mx="auto" mt={5}>
-          <Box w="70%">Map</Box>
+        <Flex w="85%" mx="auto" mt={5}>
+          <Box w="70%" rounded="lg">
+            <MapView countryInfo={covReport.countryInfo} />
+          </Box>
           <CovidReportView covReport={covReport} />
         </Flex>
       ) : (
