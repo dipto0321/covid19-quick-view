@@ -9,7 +9,7 @@ const MapView = ({ countryInfo }) => {
 
   return (
     <Box maxW="80%">
-      <ComposableMap projectionConfig={{ scale: 550, center }}>
+      <ComposableMap projectionConfig={{ scale: 450, center }}>
         <Geographies geography={geoData}>
           {
             ({ geographies }) =>
